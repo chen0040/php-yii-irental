@@ -1,0 +1,1 @@
+SELECT *, 3956*2*ASIN(SQRT(POWER(SIN((@orig_lat - abs(irtbl_marker.lat)) * pi() / 180 /2), 2) + COS(@orig_lat* pi()/180) * COS(abs(irtbl_marker.lat)*pi()/180) * POWER(SIN((@orig_lng - irtbl_marker.lng)*pi()/180/2), 2))) as distance FROM irtbl_marker having distance < @dist ORDER BY distance limit 10;
